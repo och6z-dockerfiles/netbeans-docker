@@ -62,3 +62,7 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+
+### netbeans-docker ###
+data/*
+!data/.gitkeep
