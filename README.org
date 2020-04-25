@@ -1,0 +1,5 @@
+docker build --no-cache --build-arg MAVEN_VERSION=3.6.3-openjdk-14-slim --build-arg IDE=netbeans --build-arg PRODUCT_VERSION=11.0 --build-arg GID=$(id -g) --build-arg GID_NAME=$(id -gn) --build-arg UID=$(id -u) --build-arg UID_NAME=$(id -un) --file Dockerfile . --tag image-name:latest
+
+xhost +local:docker
+
+docker run -it --volume /tmp/.X11-unix:/tmp/.X11-unix --user $(id -un) --volume $(pwd):/home/$(id -un) --env DISPLAY=unix$DISPLAY --name container-name image-id
